@@ -6,21 +6,33 @@ public class Lotto {
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
-		System.out.println("阿文ヽ(｀Д´)ﾉ...請輸入你討厭哪個數字");
+		System.out.print("阿文...請輸入你討厭哪個數字ヽ(｀Д´)ﾉ: ");
 		int j = sc.nextInt();
 		int[] lottoArray =  new int[49];
 
 		int sum = 0;
-		for(int i = 1 ; i <= 49 ; i++) {
-			int ten = i /10;
-			int unit = i % 10;
-			if(ten == j || unit == j) {				
-				continue;			
-			}
-			lottoArray[sum] = i;
-			sum++;			
-			}
-		
+		if(j > 0 && j < 10) {
+			for(int i = 1 ; i <= 49 ; i++) {
+				if(i /10 == j || i % 10 == j)	
+					continue;			
+				lottoArray[sum] = i;
+				sum++;			
+				}
+		}else if(j == 0 ) {
+			for(int i = 1 ; i <= 49 ; i++) {
+				if(i % 10 == 0)			
+					continue;			
+				lottoArray[sum] = i;
+				sum++;			
+				}			
+		}else if (j > 10){
+			for(int i = 1 ; i <= 49 ; i++) {
+				if(i == j)			
+					continue;			
+				lottoArray[sum] = i;
+				sum++;	
+			}			
+		}	
 			int y = 1;
 		for(int m = 0; m < lottoArray.length; m++) {
 			if(lottoArray[m] == 0)
@@ -42,8 +54,7 @@ public class Lotto {
 				continue;
 			}
 			System.out.print(lottoArray[x] + "\t");
-			lottoArray[x] = 0;
-			
+			lottoArray[x] = 0;			
 		}				
 	}
 
