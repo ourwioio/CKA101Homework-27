@@ -4,8 +4,9 @@ import java.util.Scanner;
 
 public class NumberGame100 {
 	public static void main(String[] args) {
+		
 		Scanner sc = new Scanner(System.in);
-		int x = (int)(Math.random() * 100); // 0 ~ 100
+		int x = (int)(Math.random() * 101); // 0 ~ 100
 		System.out.println("0 ~ 100 開始猜數字吧!");
 //		System.out.println(x);
 		while(true) {
@@ -19,7 +20,6 @@ public class NumberGame100 {
 			}
 		}
 		System.out.println("おめでとう！答案就是 " + x);
-		
 	}
 
 }
