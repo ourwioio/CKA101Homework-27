@@ -15,19 +15,19 @@ public class YearMonthDay {
 			m = sc.nextInt();
 			d = sc.nextInt();
 			if(m >12 || m < 1) {
-				System.out.print("輸入錯誤" + "沒有" + m + "月 請重新輸入!" + "\n");	
+				System.out.print("輸入錯誤沒有" + m + "月 請重新輸入!" + "\n");	
 				continue;
 			}
 			if((y % 4 == 0 && y % 100 != 0) || (y % 400 == 0)) {
 				month[2]++;
 				if (d > month[m]) {
-					System.out.print("輸入錯誤" + "該月日期不該超過" + month[m] + " 請重新輸入!" + "\n");	
+					System.out.print("輸入錯誤該月日期不該超過" + month[m] + " 請重新輸入!" + "\n");	
 					month[2]--;
 					continue;
 				}else
 					break;
 			}else if(d > month[m]) {
-				System.out.print("輸入錯誤" + "該月日期不該超過" + month[m] + " 請重新輸入!" + "\n");		
+				System.out.print("輸入錯誤該月日期不該超過" + month[m] + " 請重新輸入!" + "\n");		
 				continue;
 			}else 
 				break;
