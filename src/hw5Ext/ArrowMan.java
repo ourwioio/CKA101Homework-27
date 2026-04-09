@@ -1,4 +1,4 @@
-package hwExt;
+package hw5Ext;
 
 public class ArrowMan extends Hero {
 	
