@@ -24,7 +24,6 @@ public class Hw5_3 {
 		}
 		return max;
 	}
-	
 			
 	public static void main(String[] args) {
 		

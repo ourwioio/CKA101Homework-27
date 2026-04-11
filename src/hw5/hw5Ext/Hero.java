@@ -1,4 +1,4 @@
-package hw5Ext;
+package hw5.hw5Ext;
 
 public abstract class Hero {
 	// 省略 getter/setter...
