@@ -1,0 +1,35 @@
+package hw7;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class Hw7_1 {
+	public static void main(String[] args) throws IOException {
+		
+		int i;
+		int charCount = 0;
+		File sample = new File("src/hw7/Sample.txt");
+		
+		FileReader fr = new FileReader("src/hw7/Sample.txt");
+        BufferedReader br = new BufferedReader(fr) ;
+        while ((i = br.read()) != -1) {
+        	charCount += 1;
+        }
+        
+        FileReader fi = new FileReader("src/hw7/Sample.txt");
+        BufferedReader bf = new BufferedReader(fi) ;
+        String str;
+        int lineCount = 0;
+        while((str = bf.readLine()) != null) {
+        	lineCount += 1;
+        }
+        System.out.println("Sample.txt檔案共有" + sample.length() + "個位元組，" + 
+        charCount + "個字元，" + lineCount + "列資料");
+        
+        br.close();   
+        fr.close();
+	}
+
+}
