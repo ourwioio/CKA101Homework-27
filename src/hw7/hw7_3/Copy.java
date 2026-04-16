@@ -7,8 +7,8 @@ import java.io.IOException;
 
 public class Copy {
 	
-	File inputFile;
-	File outputFile;
+	private File inputFile;
+	private File outputFile;
 	
 	public Copy(File inputFile, File outputFile) {
 		this.inputFile = inputFile;
