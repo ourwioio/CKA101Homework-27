@@ -29,6 +29,5 @@ public class Copy {
 		in.close();
 		out.close();
 		
-		
 	}
 }
