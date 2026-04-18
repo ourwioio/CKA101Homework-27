@@ -7,7 +7,7 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-public class Anamal {
+public class Animal {
 	public static void main(String[] args) throws Exception {
 		
 		File data = new File("src/hw7/hw7_4/data");
@@ -41,7 +41,7 @@ public class Anamal {
 				((ISpeak) ois.readObject()).speak();
 			}
 		} 
-		//檔案讀完把例外接下
+		//把讀不到檔案的例外接下
 		catch (EOFException e) {
 			System.out.println("資料讀完～");
 		}
