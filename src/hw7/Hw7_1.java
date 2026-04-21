@@ -17,6 +17,8 @@ public class Hw7_1 {
         while ((i = br.read()) != -1) {
         	charCount += 1;
         }
+        br.close();   
+        fr.close();
         
         FileReader fi = new FileReader("src/hw7/Sample.txt");
         BufferedReader bf = new BufferedReader(fi) ;
@@ -28,8 +30,9 @@ public class Hw7_1 {
         System.out.println("Sample.txt檔案共有" + sample.length() + "個位元組，" + 
         charCount + "個字元，" + lineCount + "列資料");
         
-        br.close();   
-        fr.close();
+        bf.close();
+        fi.close();
+
 	}
 
 }
