@@ -12,7 +12,7 @@ public class BigEater implements Runnable{
 	@Override
 	public void run() {
 		while(!ready) {
-	}	
+		}	
 		while(rice <= 10) {
 			System.out.println(name +"吃了第" + rice + "碗飯");
 			rice++;
@@ -23,6 +23,7 @@ public class BigEater implements Runnable{
 				e.printStackTrace();
 			}		
 		}		
+		System.out.println(name + "吃完了!");
 	}
 	
 	public static void main(String[] args) {
