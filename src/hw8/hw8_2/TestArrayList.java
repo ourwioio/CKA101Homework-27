@@ -34,8 +34,9 @@ public class TestArrayList {
 //		}
 		
 		for(int i = 0; i < train.size(); i++) {
-			System.out.println("班次：" + train.get(i).getNumber() + " 車種：" + train.get(i).getType() + " 出發地：" + train.get(i).getStart() +
-					" 目的地：" + train.get(i).getDest() + " 票價：" + train.get(i).getPrice());
+			Train t = train.get(i);
+			System.out.println("班次：" + t.getNumber() + " 車種：" + t.getType() + 
+					" 出發地：" + t.getStart() + " 目的地：" + t.getDest() + " 票價：" + t.getPrice());
 		}
 		
 	}

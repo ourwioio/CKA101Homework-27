@@ -29,10 +29,6 @@ public class TestTreeSetTrain {
 			Train t = it.next();
 			System.out.println("班次：" + t.getNumber() + " 車種：" + t.getType() + " 出發地：" + t.getStart() +
 					" 目的地：" + t.getDest() + " 票價：" + t.getPrice());
-		}
-		
-		
-		
-		
+		}		
 	}
 }

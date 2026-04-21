@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-//列印不重複
+//列印不重複且沒排序
 public class TestSetTrain {
 	public static void main(String[] args) {
 		Set<Train> train = new HashSet<Train>();
