@@ -16,7 +16,7 @@ public class BigEater implements Runnable{
 		while(rice <= 10) {
 			System.out.println(name +"吃了第" + rice + "碗飯");
 			rice++;
-			int random = (int)((Math.random()) * 2500) + 500;
+			int random = (int)((Math.random()) * 2501) + 500;
 			try {
 				Thread.sleep(random);
 			} catch (InterruptedException e) {
