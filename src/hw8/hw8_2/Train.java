@@ -2,53 +2,53 @@ package hw8.hw8_2;
 
 import java.util.Objects;
 
-public class Train implements Comparable<Train>{
+public class Train implements Comparable<Train> {
 	private int number;
 	private String type;
 	private String start;
 	private String dest;
 	private double price;
-	
+
 	public void setNumber(int number) {
 		this.number = number;
 	}
-	
+
 	public int getNumber() {
 		return number;
 	}
-	
+
 	public void setType(String type) {
 		this.type = type;
 	}
-	
+
 	public String getType() {
 		return type;
 	}
-	
+
 	public void setStart(String start) {
 		this.start = start;
 	}
-	
+
 	public String getStart() {
 		return start;
 	}
-	
+
 	public void setDest(String dest) {
 		this.dest = dest;
 	}
-	
+
 	public String getDest() {
 		return dest;
 	}
-	
+
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	
+
 	public double getPrice() {
 		return price;
 	}
-	
+
 	public Train(int number, String type, String start, String dest, double price) {
 		this.number = number;
 		this.type = type;
@@ -76,20 +76,15 @@ public class Train implements Comparable<Train>{
 				&& Objects.equals(start, other.start) && Objects.equals(type, other.type);
 	}
 
-	//讓TreeSet有辦法排序
+	// 讓TreeSet有辦法排序
 	@Override
 	public int compareTo(Train tTrain) {
-		if(this.number > tTrain.number) {
+		if (this.number > tTrain.number) {
 			return -1;
-		}else if (this.number == tTrain.number) {
+		} else if (this.number == tTrain.number) {
 			return 0;
-		}else
+		} else
 			return 1;
 	}
-	
-	
-	
-	
-	
-	
+
 }
