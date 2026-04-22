@@ -10,15 +10,10 @@ public class TestArrayList {
 	public static void main(String[] args) {
 		List<Train> train = new ArrayList<Train>();
 
-		// 建立比較器
+		// 建立比較器，班次由大到小排序
 		Comparator<Train> c = new Comparator<Train>() {
 			public int compare(Train a, Train b) {
-				if (a.getNumber() > b.getNumber()) {
-					return -1;
-				} else if (a.getNumber() == b.getNumber()) {
-					return 0;
-				} else
-					return 1;
+				return b.getNumber() - a.getNumber();
 			}
 		};
 
@@ -30,7 +25,7 @@ public class TestArrayList {
 		train.add(new Train(1222, "區間", "樹林", "七堵", 300));
 		train.add(new Train(1254, "區間", "屏東", "基隆", 700));
 
-		// 使用比較器，班次由大到小排序
+		// 使用比較器
 		Collections.sort(train, c);
 
 //		Iterator<Train> it = train.iterator();
