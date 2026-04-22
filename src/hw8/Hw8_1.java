@@ -34,19 +34,16 @@ public class Hw8_1 {
 			System.out.println(obj);
 		}
 		
-		System.out.println("=========================");
+		System.out.println("===========把Number類別的物件移除===========");
 		//例用迭代器把Number類別的物件移除
 		Iterator it = c.iterator();
 		while(it.hasNext()) {
-			if(it.next() instanceof Number){
+			Object obj = it.next();
+			if(obj instanceof Number){
 				it.remove();
+			}else {
+				System.out.println(obj);
 			}
-		}
-		
-		for(Object obj : c) {
-			System.out.println(obj);
-		}
-		
-		
+		}		
 	}
 }
