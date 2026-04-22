@@ -35,7 +35,7 @@ public class Hw8_1 {
 		}
 		
 		System.out.println("===========把Number類別的物件移除===========");
-		//例用迭代器把Number類別的物件移除
+		//利用迭代器把Number類別的物件移除
 		Iterator it = c.iterator();
 		while(it.hasNext()) {
 			Object obj = it.next();
