@@ -5,39 +5,41 @@ class Wallet {
 
 	synchronized public void safeMoney(int money) {
 		if (balance >= 3000) {
-			System.out.println("媽媽看到餘額在3000以上，暫停匯款");
 			try {
+				System.out.println("媽媽看到餘額在3000以上，暫停匯款");
 				System.out.println("熊大被媽媽告知帳戶已經有錢");
-				wait();
+				// 因為熊大只有領10次只有1萬元，媽媽存10次有2萬元，
+				// 在wait()加入參數讓媽媽等不到人領錢會醒來接下去的動作，避免死結。
+				wait(500);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-		} else {
-			balance += money;
-			System.out.println("媽媽存了" + money + " 帳戶餘額：" + balance);
 		}
+		balance += money;
+		System.out.println("媽媽存了" + money + " 帳戶餘額：" + balance);
 		notify();
 	}
 
 	synchronized public void spendMoney(int money) {
-
-		if (balance == 0) {
-			System.out.println("熊大看到餘額在2000以下，要求匯款");
-			System.out.println("熊到看到帳戶沒錢暫停提款");
+		while (balance < money) {
 			try {
+				System.out.println("熊大到看到帳戶沒錢暫停提款");
 				System.out.println("媽媽被熊大要求匯款！");
 				wait();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-		} else if (balance <= 2000) {
+		}
+		if (balance <= 2000) {
 			System.out.println("熊大看到餘額在2000以下，要求匯款");
 			balance -= money;
 			System.out.println("熊大領了" + money + " 帳戶餘額：" + balance);
+		} else {
+			balance -= money;
+			System.out.println("熊大領了" + money + " 帳戶餘額：" + balance);
 		}
-		balance -= money;
-		System.out.println("熊大領了" + money + " 帳戶餘額：" + balance);
 		notify();
+
 	}
 }
 
