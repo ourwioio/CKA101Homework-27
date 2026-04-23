@@ -1,7 +1,7 @@
 package hw9.hw9_2;
 
-class WantMoney {
-	private static int balance = 0;
+class Wallet {
+	private int balance = 0;
 
 	synchronized public void safeMoney(int money) {
 		if (balance >= 3000) {
@@ -12,7 +12,7 @@ class WantMoney {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-		}else {
+		} else {
 			balance += money;
 			System.out.println("媽媽存了" + money + " 帳戶餘額：" + balance);
 		}
@@ -21,20 +21,19 @@ class WantMoney {
 
 	synchronized public void spendMoney(int money) {
 
-		while (balance <= 2000) {
+		if (balance == 0) {
+			System.out.println("熊大看到餘額在2000以下，要求匯款");
+			System.out.println("熊到看到帳戶沒錢暫停提款");
+			try {
+				System.out.println("媽媽被熊大要求匯款！");
+				wait();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		} else if (balance <= 2000) {
 			System.out.println("熊大看到餘額在2000以下，要求匯款");
 			balance -= money;
 			System.out.println("熊大領了" + money + " 帳戶餘額：" + balance);
-			if (balance == 0) {
-				System.out.println("熊大看到餘額在2000以下，要求匯款");
-				System.out.println("熊到看到帳戶沒錢暫停提款");
-				try {
-					System.out.println("媽媽被熊大要求匯款！");
-					wait();
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-			}
 		}
 		balance -= money;
 		System.out.println("熊大領了" + money + " 帳戶餘額：" + balance);
@@ -43,39 +42,38 @@ class WantMoney {
 }
 
 class Mother extends Thread {
-	WantMoney wm;
+	Wallet wt;
 
-	public Mother(WantMoney wm) {
-		this.wm = wm;
+	public Mother(Wallet wt) {
+		this.wt = wt;
 	}
 
 	public void run() {
 		for (int i = 1; i <= 10; i++)
-			wm.safeMoney(2000);
+			wt.safeMoney(2000);
 	}
 }
 
 class Son extends Thread {
-	WantMoney wm;
+	Wallet wt;
 
-	public Son(WantMoney wm) {
-		this.wm = wm;
+	public Son(Wallet wt) {
+		this.wt = wt;
 	}
 
 	public void run() {
 		for (int i = 1; i <= 10; i++)
-			wm.spendMoney(1000);
+			wt.spendMoney(1000);
 	}
 }
 
 public class TestMoney {
 	public static void main(String[] args) {
-		WantMoney wm = new WantMoney();
-		Mother mother = new Mother(wm);
-		Son son = new Son(wm);
+		Wallet wt = new Wallet();
+		Mother mother = new Mother(wt);
+		Son son = new Son(wt);
 		mother.start();
 		son.start();
-
 	}
 
 }
