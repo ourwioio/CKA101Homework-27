@@ -4,8 +4,6 @@ class WantMoney {
 	private static int balance = 0;
 
 	synchronized public void safeMoney(int money) {
-		balance += money;
-		System.out.println("媽媽存了" + money + " 帳戶餘額：" + balance);
 		if (balance >= 3000) {
 			System.out.println("媽媽看到餘額在3000以上，暫停匯款");
 			try {
@@ -14,6 +12,9 @@ class WantMoney {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
+		}else {
+			balance += money;
+			System.out.println("媽媽存了" + money + " 帳戶餘額：" + balance);
 		}
 		notify();
 	}
