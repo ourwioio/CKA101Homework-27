@@ -28,7 +28,7 @@ public class BigEater implements Runnable{
 	
 	public static void main(String[] args) {
 		BigEater p1 = new BigEater("饅頭人");
-		BigEater p2 = new BigEater("詹姆士");
+		BigEater p2 = new BigEater("\t\t詹姆士");
 		Thread t1 = new Thread(p1);
 		Thread t2 = new Thread(p2);
 		

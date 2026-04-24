@@ -8,12 +8,12 @@ class Wallet {
 			try {
 				System.out.println("媽媽看到餘額在3000以上，暫停匯款");
 				System.out.println("熊大被媽媽告知帳戶已經有錢");
-				// 因為熊大只有領10次只有1萬元，媽媽存10次有2萬元，
-				// 在wait()加入參數讓媽媽等不到人領錢會醒來接下去的動作，避免死結。
-				wait(500);
+				// 因為熊大只有領10次只有1萬元，媽媽存10次有2萬元，錢沒人領程式進入死結。
+				// 在wait()內加入參數讓媽媽等不到人領錢會醒來做接下去的動作，避免死結。
+				wait(100);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
-			}
+			} 
 		}
 		balance += money;
 		System.out.println("媽媽存了" + money + " 帳戶餘額：" + balance);
