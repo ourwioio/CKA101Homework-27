@@ -8,8 +8,6 @@ class Wallet {
 		while (balance > 3000) {
 			try {
 				System.out.println("\t\t\t媽媽看到餘額在3000以上，暫停匯款");
-				// 因為熊大只有領10次只有1萬元，媽媽存10次有2萬元，錢沒人領程式進入死結。
-				// 在wait()內加入參數讓媽媽等不到人領錢會醒來做接下去的動作，避免死結。
 				wait();
 			} catch (InterruptedException e) {
 				System.out.println("\t\t\t熊大發財了,不需要媽媽匯款了");
