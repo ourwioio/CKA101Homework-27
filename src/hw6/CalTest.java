@@ -6,8 +6,8 @@ public class CalTest {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		Calculator ca = new Calculator();
-		
-		while(true) {
+
+		while (true) {
 			try {
 				System.out.println("請輸入x的值：");
 				int x = sc.nextInt();
@@ -20,7 +20,7 @@ public class CalTest {
 				System.out.println(e.getMessage());
 			} catch (InputMismatchException i) {
 				System.out.println("輸入格式不正確");
-				sc.next(); //把輸入的字串給清除，繼續下一個迴圈
+				sc.next(); // 把輸入的字串給清除，繼續下一個迴圈
 			}
 		}
 		sc.close();
