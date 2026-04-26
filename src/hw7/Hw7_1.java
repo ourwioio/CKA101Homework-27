@@ -10,6 +10,7 @@ public class Hw7_1 {
 		
 		int i;
 		int charCount = 0;
+		int charCount2 = 0;
 		File sample = new File("src/hw7/Sample.txt");
 		
 		FileReader fr = new FileReader("src/hw7/Sample.txt");
@@ -25,10 +26,12 @@ public class Hw7_1 {
         String str;
         int lineCount = 0;
         while((str = bf.readLine()) != null) {
+        	charCount2 += str.length();
         	lineCount += 1;
         }
         System.out.println("Sample.txt檔案共有" + sample.length() + "個位元組，" + 
-        charCount + "個字元，" + lineCount + "列資料");
+        charCount + "個字元(含無法顯示字元)，" + lineCount + "列資料");
+        System.out.println("可顯示字元數為" + charCount2 +"個");
         
         bf.close();
         fi.close();
